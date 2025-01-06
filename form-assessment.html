@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Assessment</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+.previous-btn {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.previous-btn h1 {
+    font-size: 60px;
+    margin: 0;
+    background-color: white;
+    border-radius: 50%;
+    padding: 15px;
+    width: 80px; 
+    height: 80px; 
+    color: #FF6F61;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.previous-btn a {
+    text-decoration: none;
+}
+
+.previous-btn h1:hover {
+    color: #FF8C85;
+}
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: rgb(250, 207, 140);
+            background: linear-gradient(90deg, rgba(255, 198, 255, 1) 15%, rgba(255, 246, 140, 1) 100%);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            color: #FF6F61;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+
+
+
+    </style>
+   
+</head>
+<body>
+
+    <div class="previous-btn">
+        <a href="index.html">
+            <h1>&lt;</h1>
+        </a>
+    </div>
+    
+        <img class="picture" src="dekpoke.png" alt="">
+        <div class="container">
+        <img class="picture1" src="cartoon.png" alt="">
+        <h1>Mental Health Assessment</h1><br><br>
+        
+        <form id="mentalHealthForm">
+            <div class="question-container">
+                <div class="question">
+                    <label>1. ฉันรู้สึกมีความสุขในวันนี้</label>
+                    <div class="rating">
+                        <input type="radio" id="q1o1" name="question1" value="5" required>
+                        <label for="q1o1">ตรงมาก</label>
+                        
+                        <input type="radio" id="q1o2" name="question1" value="4">
+                        <label for="q1o2">ตรง</label>
+                        
+                        <input type="radio" id="q1o3" name="question1" value="3">
+                        <label for="q1o3">กลางๆ</label>
+                        
+                        <input type="radio" id="q1o4" name="question1" value="2">
+                        <label for="q1o4">ไม่ขนาดนั้น</label>
+                        
+                        <input type="radio" id="q1o5" name="question1" value="1">
+                        <label for="q1o5">ไม่เลย</label>
+                    </div>
+                </div><br><br>
+
+                <!-- Repeat for more questions -->
+
+                <div class="question">
+                    <label>2. ฉันสามารถทำงานหรือการบ้านได้ดี</label>
+                    <div class="rating">
+                        <input type="radio" id="q2o1" name="question2" value="5" required>
+                        <label for="q2o1">ตรงมาก</label>
+
+                        <input type="radio" id="q2o2" name="question2" value="4">
+                        <label for="q2o2">ตรง</label>
+
+                        <input type="radio" id="q2o3" name="question2" value="3">
+                        <label for="q2o3">กลางๆ</label>
+
+                        <input type="radio" id="q2o4" name="question2" value="2">
+                        <label for="q2o4">ไม่ขนาดนั้น</label>
+
+                        <input type="radio" id="q2o5" name="question2" value="1">
+                        <label for="q2o5">ไม่เลย</label>
+                    </div>
+                </div><br>
+
+                <!-- Add other questions up to 20 in the same format -->
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('mentalHealthForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let score = 0;
+            for (let i = 1; i <= 20; i++) {
+                const answer = document.querySelector(`input[name="question${i}"]:checked`);
+                if (answer) {
+                    score += parseInt(answer.value);
+                }
+            }
+            alert(`Your total score is: ${score}`);
+        });
+    </script>
+
+</body>
+</html>
